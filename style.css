@@ -55,6 +55,7 @@ h1, h2, h3 {
 }
 
 h1 {
+  margin-top: 50px;
   font-size: 3.4rem;
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -181,3 +182,61 @@ footer {
   font-size: 0.9rem;
   line-height: 1.5;
 }
+
+/* Home Page Buttons */
+.home-buttons {
+  margin-top: 2em;
+  display: flex;
+  gap: 1.2em;
+  justify-content: center;
+}
+/* Universal Button Style */
+.btn, .back-btn {
+  text-decoration: none;
+  background: #222222;             /* Light gray background */
+  color: #F5F5F5;                  /* Dark text */
+  padding: 12px 36px;           /* Equal padding */
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;             /* Bold text */
+  width: 150px;             /* Same width for all buttons */
+  text-align: center;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover, .back-btn:hover {
+  background: #b3b3b3;          /* Slightly darker gray */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.about-section {
+  margin-top: 3em;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Fira Code", "Courier New", monospace;
+  font-size: 0.9rem;
+  padding: 25px 40px;
+  border-radius: 12px;
+  width: 90%;                /*  Take 90% of the screen width */
+  max-width: 900px;          /*  Wider maximum */
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  white-space: pre;          /*  Keep indentation exact */
+  line-height: 1.6;
+  overflow-x: auto;          /* Prevents overflow, just in case */
+  margin-left: auto;         /* Centers the block */
+  margin-right: auto;
+  padding-top: 0px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+
+
+/* Simple syntax highlight vibes */
+.about-section .keyword { color: #569cd6; }
+.about-section .string { color: #ce9178; }
+.about-section .function { color: #dcdcaa; }
+.about-section .comment { color: #6a9955; }
+
