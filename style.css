@@ -1,25 +1,59 @@
-/* Reset */
+/* ===========================================================
+   🌙 THEME COLORS
+   =========================================================== */
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #1a1a1a;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --btn-bg: #222;
+  --btn-text: #f5f5f5;
+  --footer-text: #999;
+  --link-color: #333;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #f0f0f0;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --btn-bg: #f0f0f0;
+  --btn-text: #121212;
+  --footer-text: #aaa;
+  --link-color: #ddd;
+}
+
+/* ===========================================================
+   Base Reset
+   =========================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body styling */
+/* ===========================================================
+   Body
+   =========================================================== */
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  color: #1a1a1a;
-  background-color: #f5f5f5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   letter-spacing: -0.01em;
+  padding: 40px 10px;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Header */
+/* ===========================================================
+   Header (kept for structure)
+   =========================================================== */
 header {
   position: absolute;
   top: 30px;
@@ -30,138 +64,106 @@ header {
   align-items: center;
 }
 
-.logo {
-  font-weight: bold;
-  text-transform: lowercase;
-  font-size: 1rem;
-  letter-spacing: 0.5px;
-}
-
-.menu-icon {
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #555;
-}
-
-/* Main section */
+/* ===========================================================
+   Main Section
+   =========================================================== */
 main {
   text-align: center;
-  margin-top: -100px;
+  margin-top: 0;
+  padding: 0 20px;
   max-width: 700px;
 }
 
 h1, h2, h3 {
-  font-family: inherit; /* ✅ unified font */
+  font-family: inherit;
+  color: var(--text-color);
+  transition: color 0.3s ease;
 }
 
 h1 {
-  margin-top: 50px;
-  font-size: 3.4rem;
+  margin-top: 30px;
+  font-size: clamp(1.8rem, 5vw, 3.4rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #222;
+  line-height: 1.2;
 }
 
 h2 {
   font-size: 1.4rem;
-  color: #555;
+  color: var(--text-color);
   margin-top: 0.4em;
   font-weight: 400;
   text-transform: lowercase;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid var(--card-border);
   display: inline-block;
   padding-bottom: 0.3em;
 }
 
 .subtext {
   margin-top: 1em;
-  color: #777;
-  font-size: 0.95rem;
+  color: var(--footer-text);
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   line-height: 1.5;
-  font-family: inherit; /* ✅ consistent font */
 }
 
+/* ===========================================================
+   Links
+   =========================================================== */
 .links {
   margin-top: 1.5em;
 }
 
 .links a {
-  color: #333;
+  color: var(--link-color);
   text-decoration: none;
   margin: 0 15px;
   font-weight: 400;
   opacity: 0.85;
-  transition: opacity 0.2s ease;
-  font-family: inherit; /* ✅ consistent font */
+  transition: opacity 0.2s ease, color 0.3s ease;
 }
 
 .links a:hover {
   opacity: 1;
 }
 
-/* Footer */
+/* ===========================================================
+   Footer
+   =========================================================== */
 footer {
-  position: absolute;
-  bottom: 20px;
+  position: static;
+  margin-top: 40px;
   font-size: 0.8rem;
-  color: #999;
-  font-family: inherit; /*  consistent font */
+  color: var(--footer-text);
+  text-align: center;
+  transition: color 0.3s ease;
 }
 
-/* ######################################################### */
-
-/* Blog section */
+/* ===========================================================
+   Blog & Projects Cards
+   =========================================================== */
 .blog-section {
   margin-top: 80px;
-  text-align: center; /*  centered section */
+  text-align: center;
   max-width: 650px;
-}
-
-.blog-section h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 1.2em;
-  border-bottom: 2px solid #ddd;
-  display: inline-block;
-  padding-bottom: 0.3em;
-  font-family: inherit; /*  unified font */
 }
 
 .posts {
   display: flex;
   flex-direction: column;
   gap: 1em;
-  align-items: center; /*  centers all post titles */
+  align-items: center;
 }
 
-.post-title {
-  text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  font-size: 1.05rem;
-  transition: color 0.2s ease, transform 0.2s ease;
-  font-family: inherit; /*  unified font */
-}
-
-.post-title:hover {
-  color: #361111;
-  transform: translateY(-2px);
-}
-
-/* ===========================================================
-   🔹 Blog Post Cards – minimal & smooth
-   =========================================================== */
 .post-card {
-  background: #fff;
-  border: 1px solid #e0e0e0;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   padding: 20px 25px;
   width: 100%;
   max-width: 600px;
   text-align: left;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .post-card:hover {
@@ -171,72 +173,139 @@ footer {
 
 .post-card a {
   text-decoration: none;
-  color: #222;
+  color: var(--text-color);
   font-weight: 600;
   font-size: 1.05rem;
 }
 
 .post-card p {
   margin-top: 0.5em;
-  color: #555;
+  color: var(--footer-text);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
-/* Home Page Buttons */
+/* ===========================================================
+   Buttons
+   =========================================================== */
 .home-buttons {
   margin-top: 2em;
   display: flex;
   gap: 1.2em;
   justify-content: center;
+  align-items: center;
 }
-/* Universal Button Style */
+
 .btn, .back-btn {
   text-decoration: none;
-  background: #222222;             /* Light gray background */
-  color: #F5F5F5;                  /* Dark text */
-  padding: 12px 36px;           /* Equal padding */
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 12px 36px;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 600;             /* Bold text */
-  width: 150px;             /* Same width for all buttons */
+  font-weight: 600;
+  width: 150px;
   text-align: center;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover, .back-btn:hover {
-  background: #b3b3b3;          /* Slightly darker gray */
+  background: var(--text-color);
+  color: var(--bg-color);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+/* ===========================================================
+   Code Section
+   =========================================================== */
 .about-section {
   margin-top: 3em;
   background: #1e1e1e;
   color: #d4d4d4;
   font-family: "Fira Code", "Courier New", monospace;
   font-size: 0.9rem;
-  padding: 25px 40px;
+  padding: 40px;
   border-radius: 12px;
-  width: 90%;                /*  Take 90% of the screen width */
-  max-width: 900px;          /*  Wider maximum */
+  width: 90%;
+  max-width: 900px;
   text-align: left;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  white-space: pre;          /*  Keep indentation exact */
+  white-space: pre;
   line-height: 1.6;
-  overflow-x: auto;          /* Prevents overflow, just in case */
-  margin-left: auto;         /* Centers the block */
+  overflow-x: auto;
+  margin-left: auto;
   margin-right: auto;
-  padding-top: 0px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-top: 25px;
+  padding-left: 55px;
+  padding-right: 55px;
 }
 
+/* ===========================================================
+   Responsive
+   =========================================================== */
+@media (max-width: 992px) {
+  h1 { font-size: 2.6rem; }
+  main { padding: 0 30px; }
+  .about-section { width: 95%; font-size: 0.85rem; }
+}
 
+@media (max-width: 600px) {
+  body { padding-top: 40px; }
+  main { padding: 0 12px; }
+  h1 { font-size: 1.9rem; margin-top: 0; }
+  .links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4em;
+    display: flex;
+  }
+  .home-buttons {
+    flex-direction: column;
+    gap: 0.7em;
+    align-items: center;
+    width: 100%;
+  }
+  .btn, .back-btn {
+    width: 80%;
+    max-width: 280px;
+  }
+}
 
-/* Simple syntax highlight vibes */
-.about-section .keyword { color: #569cd6; }
-.about-section .string { color: #ce9178; }
-.about-section .function { color: #dcdcaa; }
-.about-section .comment { color: #6a9955; }
+/* ===========================================================
+   Theme Toggle Button
+   =========================================================== */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card-bg);   /* match your card color */
+  border: 1px solid var(--card-border);
+  color: var(--btn-text);
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+.theme-toggle img.theme-icon {
+  width: 70%;            /* make image fit the button */
+  height: 70%;
+  object-fit: contain;    /* scale proportionally inside circle */
+  filter: invert(0);      /* keep original colors in light mode */
+  transition: filter 0.3s ease;
+}
+
+/* make it visible in dark mode */
+body.dark-mode .theme-toggle img.theme-icon {
+  filter: invert(1);
+}
 

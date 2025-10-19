@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Triantafyllos Fotoglou | ML & AI Enthusiast</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- 🔹 Prism.js for syntax highlighting -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
-
+  <link rel="stylesheet" href="style.css" />
+  <!-- Prism.js for syntax highlighting -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </head>
+
 <body>
+  <button class="theme-toggle" onclick="toggleDarkMode()">
+    <img src="dark.png" alt="Toggle theme" class="theme-icon">
+  </button>
+
   <main>
     <h1>Triantafyllos&nbsp;Fotoglou</h1>
     <p class="subtext">
@@ -26,12 +30,13 @@
     </div>
 
     <div class="home-buttons">
-      <a href="posts.html" class="btn"> Posts</a>
-      <a href="projects.html" class="btn"> Projects</a>
+      <a href="posts.html" class="btn">Posts</a>
+      <a href="projects.html" class="btn">Projects</a>
     </div>
   </main>
-    <section class="about-section">
-      <pre><code class="language-python">class TriantafyllosFotoglou(ML_AI):
+
+  <section class="about-section">
+<pre><code class="language-python">class TriantafyllosFotoglou(ML_AI):
 
     def __init__(self):
         self.name = "Triantafyllos Fotoglou"
@@ -49,13 +54,12 @@
     def say_hi(self):
         print("Hi! I'm Triantafyllos — and this is my personal blog.")
 </code></pre>
-</section>
-
-
- 
+  </section>
 
   <footer>
     <p>© 2025 Triantafyllos Fotoglou</p>
   </footer>
+
+  <script src="theme.js"></script>
 </body>
 </html>
