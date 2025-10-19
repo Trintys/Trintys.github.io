@@ -51,12 +51,6 @@ body {
   transition: background 0.4s ease, color 0.4s ease;
 }
 
-/* Homepage override — fixed no-scroll layout */
-body.homepage {
-  overflow: hidden;
-  height: 100vh;
-  justify-content: space-between; /* keep content spaced nicely */
-}
 
 /* ===========================================================
    Header (kept for structure)
@@ -221,20 +215,31 @@ h2 {
   font-family: "Fira Code", "Courier New", monospace;
   font-size: 0.9rem;
   padding: 40px;
+  padding-bottom: 10px;
+  padding-top: 25px;
   border-radius: 12px;
   width: 90%;
   max-width: 900px;
   text-align: left;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  white-space: pre;
-  overflow-x: hidden;
-  word-break: break-word;  
+  white-space: pre-wrap;        /* keeps code formatting */
+  word-break: break-word;       /* breaks long words */
+  overflow-x: hidden;           /* prevents horizontal scroll */
+  overflow-y: visible;          /* allow vertical scroll if needed */
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 10px;
-  padding-top: 25px;
-  padding-left: 55px;
-  padding-right: 55px;
+  line-height: 1.6;
+  transition: transform 0.3s ease, font-size 0.3s ease, opacity 0.3s ease;
+  transform-origin: top center;
+}
+
+/* This ensures that any <code> or <pre> inside the about section wraps properly */
+.about-section pre,
+.about-section code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-x: hidden !important;
+  display: block;
 }
 
 /* ===========================================================
@@ -269,38 +274,53 @@ h2 {
 }
 
 /* ===========================================================
-   Theme Toggle Button
+   🌙 Theme Toggle Responsive Position — Desktop & Mobile
    =========================================================== */
+
 .theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: var(--card-bg);   /* match your card color */
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
-  color: var(--btn-text);
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 1rem;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, background 0.3s ease, top 0.3s ease, right 0.3s ease;
 }
+
 .theme-toggle:hover {
   transform: scale(1.05);
 }
 
 .theme-toggle img.theme-icon {
-  width: 70%;            /* make image fit the button */
+  width: 70%;
   height: 70%;
-  object-fit: contain;    /* scale proportionally inside circle */
-  filter: invert(0);      /* keep original colors in light mode */
+  object-fit: contain;
+  filter: invert(0);
   transition: filter 0.3s ease;
 }
 
-/* make it visible in dark mode */
+/* Dark mode */
 body.dark-mode .theme-toggle img.theme-icon {
   filter: invert(1);
 }
+
+/* ======= Mobile View (moves above the name, centered) ======= */
+@media (max-width: 600px) {
+  .theme-toggle {
+    position: static;
+    margin: 10px auto 0 auto;
+    display: block;
+    transform: scale(0.9);
+  }
+}
+
+
 
