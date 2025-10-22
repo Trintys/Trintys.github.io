@@ -319,8 +319,17 @@ body.dark-mode .theme-toggle img.theme-icon {
     margin: 10px auto 0 auto;
     display: block;
     transform: scale(0.9);
+    margin-bottom: 25px;
   }
 }
 
+#typed-title::after {
+  content: '|';
+  animation: blink 0.8s infinite;
+  color: var(--text-color);
+}
 
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
